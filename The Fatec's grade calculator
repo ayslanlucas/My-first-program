@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+	float p1, p2, p3, frequencia, multiplicacaop1, multiplicacaop2, multiplicacaop3, somamultiplicacao;
+	bool cond1 = true, cond2 = true, cond3 = true, cond4 = true;
+
+	// Condicoes de entrada
+
+	while(cond1) {
+		printf("\nDigite sua nota P1: ");
+		scanf("%f", &p1);
+
+		if(p1 > 10 || p1 < 0) {
+			printf ("\nNota incoreta. Digite novamente.\n");
+			cond1 = true;
+		}
+		else {
+			cond1 = false;
+		}
+
+	}
+
+	while(cond2) {
+		printf("\nDigite sua nota P2: ");
+		scanf("%f", &p2);
+
+		if(p2 > 10 || p2 < 0) {
+			printf("\nNota incorreta. Digite novamente.\n");
+			cond2 = true;
+		}
+		else {
+			cond2 = false;
+		}
+
+	}
+
+	while(cond3) {
+		printf("\nDigite sua nota P3: ");
+		scanf("%f", &p3);
+
+		if(p3 > 10 || p3 < 0) {
+			printf("\nNota incorreta. Digite novamente.\n");
+			cond3 = true;
+		}
+		else {
+			cond3 = false;
+		}
+
+	}
+
+	while(cond4) {
+		printf("\nDigite sua frequencia (em porcentagem): ");
+		scanf("%f", &frequencia);
+
+		if(frequencia > 100 || frequencia < 0) {
+			printf("\nFrequencia incorreta. Digite novamente.\n");
+			cond4 = true;
+		}
+		else {
+			cond4 = false;
+		}
+
+	}
+
+	// Processamento
+
+	multiplicacaop1 = p1 * 1;
+	multiplicacaop2 = p2 * 2;
+	multiplicacaop3 = p3 * 3;
+	somamultiplicacao = (multiplicacaop1 + multiplicacaop2 + multiplicacaop3) / 6;
+
+	// Condicoes de saida
+
+	// Verifica se o aluno esta retido por frequencia e nota
+	if (somamultiplicacao < 6 && frequencia < 65) {
+		printf("\nVoce esta retido por nota e frequencia insuficiente: %.1f e %.0f {minimo de 6 e 65}\n", somamultiplicacao, frequencia);
+	}
+	// Verifica se o aluno esta retido por nota
+	else if (somamultiplicacao < 6) {
+		printf("\nVoce esta retido por nota insuficiente: %.1f {minimo de 6}\n", somamultiplicacao);
+	}
+	// Verifica se o aluno esta retido por frequencia
+	else if (frequencia < 65) {
+		printf("\nVoce esta retido por frequencia insuficiente: %.0f {minimo de 65}\n", frequencia);
+	}
+	// Se nao estiver retido por nota nem por frequencia, o aluno esta aprovado
+	else {
+		printf("\nVoce esta aprovado. Sua nota final: %.1f\n", somamultiplicacao);
+	}
+
+	return 0;
+}
