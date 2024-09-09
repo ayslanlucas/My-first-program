@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdbool.h>
+int menu() {
+	int opcao;
+
+	//Aqui estou criando uma funC'C#o para o menu que eu quero retornar toda as vezes
+
+	printf("\n 0 - Fim\n 1 - Inclui\n 2 - Altera\n 3 - Exclui\n 4 - Consulta\n Opcao: ");
+	scanf("%d", &opcao);
+	return opcao;
+}
+
+int main() {
+	int opc, i = 0;
+	bool cond1 = true, cond2 = true;
+	char nome[0][50], cpf[0][12], rg[0][10];
+
+
+	printf(" Seja Bem vindo ao Cadastro de Cliente!\n");
+	printf(" ======================================\n");
+	printf(" Para comecar por favor escolha uma das opcoes abaixo: \n");
+
+	while (cond1) {
+		opc = menu();
+
+		switch (opc) {
+		case 0:
+			printf("Fim do programa!");
+			cond1 = false;
+			break;
+
+		case 1:
+			for(i = 0; i < 5; i++) {
+				printf("\n Digite seu nome %d: \n ", i + 1);
+				scanf(" %49s", nome[i]);
+
+				printf("\n Digite seu cpf %d (apenas numero): \n ", i + 1);
+				scanf(" %11s", cpf[i]);
+
+				printf("\n Digite seu rg %d (apenas numero): \n ", i + 1);
+				scanf(" %9s", rg[i]);
+				break;
+			}
+			printf("\n Cadastro concluido! \n");
+			break;
+
+		case 2:
+			if (i == 0) {
+				printf("\n Nenhum cliente cadastrado!");
+				cond1 = false;
+			}
+			else
+			{
+				printf("\n Qual cliente voce deseja alterar: \n ");
+			}
+			break;
+
+		case 3:
+			printf("\n  Qual cadastro deseja excluir: \n ");
+			scanf(" %s", &nome);
+
+			printf("\n Cadastro excluido com sucesso! \n");
+			break;
+
+		//Comecar a colocar os outros cases aqui
+
+		default:
+			printf("\n Opcao Invalida. Tente novamente! \n");
+			break;
+
+		case 4:
+			printf("\n Seu nome C) %s  ", nome);
+			printf("\n Seu cpf C) %s ", cpf);
+			printf("\n Seu rg C) %s", rg);
+
+			break;
+
+		}
+	}
+	return 0;
+}
+
+
